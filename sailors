@@ -28,7 +28,7 @@ mysql> select * from sailors;
 +-----+---------+--------+------+
 5 rows in set (0.00 sec)
 
-mysql> create table boat(sid int primary key,bname varchar(10),bcolor varchar(10));
+mysql> create table boat(bid int primary key,bname varchar(10),bcolor varchar(10));
 Query OK, 0 rows affected (0.23 sec)
 
 mysql> insert into boat values(101,"Island","Blue");
@@ -45,7 +45,7 @@ Query OK, 1 row affected (0.05 sec)
 
 mysql> select * from boat;
 +-----+--------+--------+
-| sid | bname  | bcolor |
+| bid | bname  | bcolor |
 +-----+--------+--------+
 | 101 | Island | Blue   |
 | 102 | Speed  | Red    |
@@ -99,7 +99,7 @@ mysql> select sid,sname from sailors where sid in(select sid from reserves where
 +-----+--------+
 2 rows in set (0.00 sec)
 
-mysql> select S.sname from sailors S,boat B1,reserves R1,boat B2,reserves R2 where S.sid=R1.sid and R1.bid=B1.sid and S.sid=R2.sid and R2.bid=B2.sid and B1.bcolor="Red" and B2.bcolor="Green";
+mysql> select S.sname from sailors S,boat B1,reserves R1,boat B2,reserves R2 where S.sid=R1.sid and R1.bid=B1.bid and S.sid=R2.sid and R2.bid=B2.bid and B1.bcolor="Red" and B2.bcolor="Green";
 Empty set (0.00 sec)
 
 
