@@ -100,7 +100,14 @@ mysql> select sid,sname from sailors where sid in(select sid from reserves where
 2 rows in set (0.00 sec)
 
 mysql> select S.sname from sailors S,boat B1,reserves R1,boat B2,reserves R2 where S.sid=R1.sid and R1.bid=B1.bid and S.sid=R2.sid and R2.bid=B2.bid and B1.bcolor="Red" and B2.bcolor="Green";
-Empty set (0.00 sec)
++----+---+
+| sname  |
++--------+
+|Denis   | 
+|Harley  |        |
++--------+
+
+
 
 
 
